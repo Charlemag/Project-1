@@ -11,6 +11,8 @@ let interval;
 let duckImg = new Image()
 duckImg.src = 'duckgreen.png';
 
+// Boo
+
 // 2. Constructor
 let ducks = []
     class Duck {
