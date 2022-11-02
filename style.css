@@ -1,0 +1,19 @@
+canvas {
+    background-image: url('stage.png'); 
+    display: block;
+    background-size: cover;  
+    background-position: center; 
+    margin: auto;
+  
+}
+
+body {
+  text-align: center; 
+}
+
+#start {
+  position: absolute;
+  float: right;
+  height: 80px;
+  width: 100px;
+}
