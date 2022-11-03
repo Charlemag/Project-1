@@ -72,6 +72,14 @@ duckImg.src = 'duckgreen.png';
     updatePosition(){
         this.y += this.yVelocity
         this.x += this.xVelocity
+
+        if(this.xVelocity > 0 && this.x + this.width > canvas.width){
+            this.xVelocity = -this.xVelocity
+        }
+
+        if(this.xVelocity < 0 && this.x < 0){
+            this.xVelocity = -this.xVelocity
+        }
     }
 //Drawing and scaling the image to the canvas
 // Drwing each frame of sprite
@@ -92,12 +100,16 @@ let addDuck = () => {
     let xV;
     if(Math.random() > 0.5) {
         side = canvas.width - 50
-        xV = -1
+//-5 + -(Math.random() * 5) Randomly set X direction speed between -5 and -10        
+        xV = -5 + -(Math.random() * 5)
 } else {
     side = 0
-    xV = 1
+
+    xV = 5 + (Math.random() * 5)
+    //5 + (Math.random() * 5) This sets an X direction speed between 5-10
 }
-    ducks.push(new Duck(side, canvas.height - 250, xV, -1, duckImg))
+//  -0.5 + -(Math.random()) Randomly sets Y direction speed between negative 0.5 and -1.5
+    ducks.push(new Duck(side, canvas.height - 250, xV, -0.5 + -(Math.random()), duckImg))
     // console.log(ducks, "ducksArray")
     //starts duck img: bottom left to top of canvas
 }
@@ -107,14 +119,14 @@ let addDuck = () => {
 
 let time = 0
 
-//Keeps track of amount of times of the loop
+//Keeps track of the amount of times of our game loop
 let frameCount = 1
 
 let endGame = () => {
     clearInterval(interval)
 }
 
-//Game Lcoop - Set interval runs this function 60 times per second 
+//Game Loop - Set interval runs this function 60 times per second 
 let animate = () => {
 
     ctx.clearRect(0,0, canvas.width, canvas.height)
@@ -157,7 +169,7 @@ let animate = () => {
         ctx.clearRect(0,0, canvas.width, canvas.height)
     
     }
-    if (time >=15) {
+    if (time >=30) {
         endGame()
     }
 }
