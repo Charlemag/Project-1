@@ -3,12 +3,13 @@ canvas {
     display: block;
     background-size: cover;  
     background-position: center; 
-    margin: auto;
-  
+    margin: auto;    
 }
+
 
 body {
   text-align: center; 
+  cursor: url('./pointerSM.png') 16 16, auto;
 }
 
 #start {
@@ -17,3 +18,4 @@ body {
   height: 80px;
   width: 100px;
 }
+
